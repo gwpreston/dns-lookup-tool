@@ -1,0 +1,65 @@
+
+.DnsTools {
+    word-break: break-word;
+}
+
+.DnsTools-form, .DnsTools-centerText {
+    text-align: center;
+}
+
+.DnsTools pre {
+    min-height: 60px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+.DnsTools .panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.DnsTools-form form {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.DnsTools-form form label {
+    display: none;
+}
+
+.DnsTools-form form .btn {
+    margin-top: 1em;
+}
+
+.DnsTools-whois pre {
+    min-height: 400px;
+    font: 10px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.DnsTools-preview iframe {
+    width: 100%;
+    min-height: 400px;
+}
+
+.DnsTools-userInfo {
+    text-align: center;
+    font-size: 0.9em;
+    padding-top: 15px;
+}
+
+.DnsTools-userInfo h2 {
+    text-align: left;
+}
+
+.DnsTools-userInfo p span {}
+
+.DnsTools-contentTitle {
+    padding-bottom: 15px;
+}
+
+.DnsTools-contentTitle span {
+    font-weight: normal;
+    font-size: 0.8em;
+}
