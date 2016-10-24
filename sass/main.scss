@@ -1,9 +1,12 @@
 
+@import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
+
 .DnsTools {
     word-break: break-word;
 }
 
-.DnsTools-form, .DnsTools-centerText {
+.DnsTools-form,
+.DnsTools-centerText {
     text-align: center;
 }
 

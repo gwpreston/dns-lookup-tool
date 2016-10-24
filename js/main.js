@@ -45,6 +45,12 @@ $(document).ready(function() {
         $('iframe').attr('src', 'http://www.' + data.domain);
 				$('.DnsTools-contentTitle span').html(data.domain);
 
+				$('.DnsTools-nameserver tbody, .DnsTools-ipAddressV4 tbody, .DnsTools-ipAddressV6 tbody, .DnsTools-txtRecords tbody').empty().append($('<tr />').append($('<td />').html('Please wait....')));
+				if($('.DnsTools-mxRecords tbody .panel-body').length == 0)
+					$('.DnsTools-mxRecords tbody .panel-body').append($('<p />').html('Please wait....'));
+				$('.DnsTools-mxRecords tbody .panel-body p').removeClass('hidden');
+				$('.DnsTools-mxRecords tbody .panel-body .table-responsive').addClass('hidden');
+
 				if(data.nservers !== undefined) {
 	        $('.DnsTools-nameserver tbody').empty();
 	        for (var i = 0; i < data.nservers.length; i++ ) {
@@ -89,6 +95,8 @@ $(document).ready(function() {
 				}
 
 				if(data.mxrecord !== undefined) {
+					$('.DnsTools-mxRecords tbody .panel-body p').addClass('hidden');
+					$('.DnsTools-mxRecords tbody .panel-body .table-responsive').removeClass('hidden');
 	        $('.DnsTools-mxRecords tbody').empty();
 	        for (var i = 0; i < data.mxrecord.length; i++ ) {
 						var $tr = $('<tr />');

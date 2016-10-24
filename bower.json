@@ -1,0 +1,24 @@
+{
+  "name": "DNS-Tool-Lookup",
+  "description": "A DNS lookup tool",
+  "main": "",
+  "authors": [
+    "Gareth Preston <gareth.preston@propertypal.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap-sass": "^3.3.7",
+    "respond": "^1.4.2",
+    "html5shiv": "^3.7.3"
+  }
+}
