@@ -114,7 +114,7 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	// Register Grunt tasks
-	grunt.registerTask('default', [ 'copy', 'sass', 'uglify' ]);
-	grunt.registerTask('develop', [ 'default', 'php', 'watch' ]);
+	grunt.registerTask('default', [ 'copy', 'sass', 'uglify', 'php' ]);
+	grunt.registerTask('develop', [ 'default', 'default', 'watch' ]);
 
 };
