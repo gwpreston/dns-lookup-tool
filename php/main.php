@@ -28,15 +28,15 @@ if(isset($domain)) {
 	}
 	else {
 	  # remove http:// if included
-	  if (substr(strtolower($domain) , 0, 7) == 'http://')
+	  if (substr(strtolower($domain) , 0, 7) === 'http://')
 	    $domain = substr($domain, 7);
 
 	  # remove http:// if included
-	  if (substr(strtolower($domain) , 0, 8) == 'https://')
+	  if (substr(strtolower($domain) , 0, 8) === 'https://')
 	    $domain = substr($domain, 8);
 
 	  # remove www from domain
-	  if (substr(strtolower($domain) , 0, 4) == 'www.')
+	  if (substr(strtolower($domain) , 0, 4) === 'www.')
 	    $domain = substr($domain, 4);
 	}
 

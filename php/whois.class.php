@@ -158,22 +158,22 @@ class Whois{
 
   	if(function_exists('preg_replace'))
     {
-  		// http://www.phpliveregex.com/p/hwF
+  		# http://www.phpliveregex.com/p/hwF
   		# Removes www. or http:// or https://
   		$domain = preg_replace("/(https?:\/\/)?www\.([^\/]+)\/?/", "$2", $domain);
   	}
   	else
     {
   	  # remove http:// if included
-  	  if (substr(strtolower($domain) , 0, 7) == 'http://')
+  	  if (substr(strtolower($domain) , 0, 7) === 'http://')
   	    $domain = substr($domain, 7);
 
   	  # remove http:// if included
-  	  if (substr(strtolower($domain) , 0, 8) == 'https://')
+  	  if (substr(strtolower($domain) , 0, 8) === 'https://')
   	    $domain = substr($domain, 8);
 
   	  # remove www from domain
-  	  if (substr(strtolower($domain) , 0, 4) == 'www.')
+  	  if (substr(strtolower($domain) , 0, 4) === 'www.')
   	    $domain = substr($domain, 4);
   	}
 
@@ -225,7 +225,7 @@ class Whois{
     return $out;
   }
 
-  // http://www.warriorforum.com/programming/475532-php-domain-tools-class.html
+  # http://www.warriorforum.com/programming/475532-php-domain-tools-class.html
   public static function GetExpirationDate($data)
 	{
   	if(preg_match_all('/Expir(ation|y)? (d|D)ate: (.+)/', $data, $match))
