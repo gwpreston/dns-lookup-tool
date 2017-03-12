@@ -44,30 +44,33 @@ if(isset($domain)) {
 	$json->domain = $domain;
 
   if($type === 'dns') {
-    $dnsr = dns_get_record($domain, DNS_ALL);
-    $json->debug = $dnsr;
 
-    foreach($dnsr as $record) {
+		if($dnsr = @dns_get_record($domain, DNS_ALL)) {
+	    $json->debug = $dnsr;
 
-      if($record['type'] === 'A')
-        $json->ipaddressV4[] = $record['ip'];
+	    foreach($dnsr as $record) {
 
-			if($record['type'] === 'AAAA')
-        $json->ipaddressV6[] = $record['ipv6'];
+	      if($record['type'] === 'A')
+	        $json->ipaddressV4[] = $record['ip'];
 
-			if($record['type'] === 'TXT')
-        $json->txt[] = $record['txt'];
+				if($record['type'] === 'AAAA')
+	        $json->ipaddressV6[] = $record['ipv6'];
 
-      if($record['type'] === 'NS')
-        $json->nservers[] = $record['target'];
+				if($record['type'] === 'TXT')
+	        $json->txt[] = $record['txt'];
 
-      if($record['type'] === 'MX')
-        $json->mxrecord[] = array(
-          'name' => $record['target'],
-          'ip' => gethostbyname($record['target']),
-          'priority' => $record['pri']
-        );
-    }
+	      if($record['type'] === 'NS')
+	        $json->nservers[] = $record['target'];
+
+	      if($record['type'] === 'MX')
+	        $json->mxrecord[] = array(
+	          'name' => $record['target'],
+	          'ip' => gethostbyname($record['target']),
+	          'priority' => $record['pri']
+	        );
+	    }
+
+		}
 
 		// Sort MX Records
 		function mxPriorityAscSort($item1, $item2)
@@ -75,7 +78,9 @@ if(isset($domain)) {
 		    if ($item1['priority'] === $item2['priority']) return 0;
 		    return ($item1['priority'] > $item2['priority']) ? 1 : -1;
 		}
-		usort($json->mxrecord, 'mxPriorityAscSort');
+
+		if(property_exists($json, 'mxrecord'))
+			usort($json->mxrecord, 'mxPriorityAscSort');
 
   }
   else if($type === 'whois') {
