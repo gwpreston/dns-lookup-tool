@@ -23,6 +23,12 @@ include_once('main.php');
 <!--[if IE 9]>         <body class="DnsTools lt-ie10"> <![endif]-->
 <!--[if gt IE 8]><!--> <body class="DnsTools"> <!--<![endif]-->
 
+<?php if (version_compare(phpversion(), '5.0.0', '<')) { ?>
+<div class="alert alert-danger DnsTools-phpVersion">
+  <h5>Error: It appears you have not the correct PHP required. It must be PHP 5 or greater. You currently have <?php echo phpversion(); ?>.</h5>
+</div>
+<?php } ?>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12 DnsTools-form">
