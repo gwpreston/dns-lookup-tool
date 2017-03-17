@@ -30,7 +30,7 @@ include_once('main.php');
 
 <?php else if (!function_exists('fsockopen')) { ?>
 <div class="alert alert-danger DnsTools-phpVersion">
-  <h5>Error: fsockopen must be enabled to use this script.</h5>
+  <h5>Error: <strong>fsockopen</strong> must be enabled to use this script.</h5>
 </div>
 <?php } ?>
 
