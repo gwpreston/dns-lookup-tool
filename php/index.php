@@ -7,13 +7,12 @@ include_once('main.php');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="/dist/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="/dist/css/main.min.css" type="text/css">
+<link rel="stylesheet" href="css/main.min.css" type="text/css">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-	<script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
-	<script src="/bower_components/respond/dest/respond.min.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
 <![endif]-->
 </head>
 
@@ -214,8 +213,8 @@ include_once('main.php');
   </div>
 </div>
 
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/dist/js/main.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
 
 </body>
 </html>

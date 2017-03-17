@@ -77,15 +77,51 @@ module.exports = function (grunt) {
 						src: ['**'],
 						dest: 'dist/fonts/bootstrap',
 						filter: 'isFile'
+					},
+					{
+						expand: true,
+						src: ['php/*'],
+						dest: 'dist/',
+						filter: 'isFile',
+						flatten: true
+					},
+					{
+						expand: true,
+						cwd: 'bower_components/jquery/dist/',
+						src: ['jquery.min.js'],
+						dest: 'dist/js',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'bower_components/respond/dest/',
+						src: ['respond.min.js'],
+						dest: 'dist/js',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'bower_components/html5shiv/dist/',
+						src: ['html5shiv.min.js'],
+						dest: 'dist/js',
+						filter: 'isFile'
 					}
 		    ],
 		  },
 		},
 
+		clean: {
+			build: {
+		    src: ['dist/']
+		  }
+		},
+
 		php: {
         dist: {
             options: {
-								port: 8000
+								port: 8000,
+								open: true,
+								base: 'dist'
             }
         }
     },
@@ -105,6 +141,10 @@ module.exports = function (grunt) {
 			js: {
 				files: [ 'js/**/*.js' ],
 				tasks: [ 'uglify' ]
+			},
+			php: {
+				files: [ 'php/*.php' ],
+				tasks: [ 'copy' ]
 			}
 		}
 
@@ -114,7 +154,8 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	// Register Grunt tasks
-	grunt.registerTask('default', [ 'copy', 'sass', 'uglify', 'php' ]);
+	grunt.registerTask('default', [ 'clean', 'copy', 'sass', 'uglify', 'php' ]);
 	grunt.registerTask('develop', [ 'default', 'watch' ]);
+	grunt.registerTask('serve', [ 'default' ]);
 
 };

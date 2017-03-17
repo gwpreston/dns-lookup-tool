@@ -1,11 +1,13 @@
 
+@import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap';
+
 .DnsTools {
     word-break: break-word;
     margin-bottom: 1em;
 }
 
-.DnsTools-form,
-.DnsTools-centerText {
+.DnsTools-centerText,
+.DnsTools-form {
     text-align: center;
 }
 
@@ -68,14 +70,14 @@
 }
 
 .DnsTools-server .DnsTools-map {
-  height: 300px;
+    height: 300px;
 }
 
 .DnsTools-nameserver .table a {
-  display: inline-block;
-  margin-left: 5px;
+    display: inline-block;
+    margin-left: 5px;
 }
 
 .DnsTools-phpVersion {
-  text-align: center;
+    text-align: center;
 }
