@@ -3,10 +3,12 @@ $(document).ready(function() {
 
 	$('html').removeClass('no-js');
 
-	var script = document.createElement( 'script' );
-	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?key=' + $('.DnsTools-server .DnsTools-map').data('mapkey');
-	$('head').append( script );
+	if($('.DnsTools-server').length > 0) {
+		var script = document.createElement( 'script' );
+		script.type = 'text/javascript';
+		script.src = 'https://maps.googleapis.com/maps/api/js?key=' + $('.DnsTools-server .DnsTools-map').data('mapkey');
+		$('head').append( script );
+	}
 
 	var map = null;
 	var marker = null;
@@ -64,8 +66,14 @@ $(document).ready(function() {
 				if(data.nservers !== undefined) {
 	        $('.DnsTools-nameserver tbody').empty();
 	        for (var i = 0; i < data.nservers.length; i++ ) {
+
+						var $link = $('<a />').attr({
+							href: 'http://ip-lookup.net/index.php?ip=' + data.nservers[i].ip,
+							target : '_blank'
+						}).html('(' + data.nservers[i].ip + ')');
+
 						$tr = $('<tr />');
-						$tr.append($('<td />').html(data.nservers[i].name + ' (' + data.nservers[i].ip + ')'));
+						$tr.append($('<td />').html(data.nservers[i].name).append($link));
 						$('.DnsTools-nameserver tbody').append($tr);
 					}
 				}
@@ -117,7 +125,7 @@ $(document).ready(function() {
 						}).html(data.mxrecord[i].ip);
 
 						var $blacklistLink = $('<a />').attr({
-							href: 'http://mxtoolbox.com/SuperTool.aspx?action=' + encodeURIComponent('blacklist:' + data.mxrecord[i].ip),
+							href: 'https://mxtoolbox.com/SuperTool.aspx?run=toolpage&action=' + encodeURIComponent('blacklist:' + data.mxrecord[i].ip),
 							target : '_blank'
 						}).html('Check');
 

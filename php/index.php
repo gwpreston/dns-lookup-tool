@@ -158,11 +158,13 @@ include_once('main.php');
 			        <h3>Preview</h3>
 			        <iframe></iframe>
 			      </div>
+            <?php if(defined('GOOGLE_MAP_KEY') && !empty(GOOGLE_MAP_KEY)) { ?>
             <div class="col-sm-12 DnsTools-server">
               <h3>Server</h3>
               <p>Location: <span></span></p>
-              <div id="Map" class="DnsTools-map" data-mapkey=""></div>
+              <div id="Map" class="DnsTools-map" data-mapkey="<?php echo GOOGLE_MAP_KEY; ?>"></div>
             </div>
+            <?php } ?>
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 <?php
 
+include_once('config.php');
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -73,7 +75,9 @@ if(isset($domain)) {
 	        );
 	    }
 
-			$json->geo = json_decode(file_get_contents('http://ip-api.com/json/' . $json->ipaddressV4[0]));
+			if(defined('GOOGLE_MAP_KEY') && !empty(GOOGLE_MAP_KEY))
+				$json->geo = json_decode(file_get_contents('http://ip-api.com/json/' . $json->ipaddressV4[0]));
+				
 		}
 
 		// Sort MX Records
