@@ -1,6 +1,7 @@
 
 .DnsTools {
     word-break: break-word;
+    margin-bottom: 1em;
 }
 
 .DnsTools-form,
@@ -19,6 +20,7 @@
 .DnsTools .panel-heading span {
     margin-top: -20px;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .DnsTools-form form {
@@ -63,4 +65,8 @@
 .DnsTools-contentTitle span {
     font-weight: normal;
     font-size: 0.8em;
+}
+
+.DnsTools-server .DnsTools-map {
+  height: 300px;
 }

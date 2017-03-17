@@ -158,6 +158,11 @@ include_once('main.php');
 			        <h3>Preview</h3>
 			        <iframe></iframe>
 			      </div>
+            <div class="col-sm-12 DnsTools-server">
+              <h3>Server</h3>
+              <p>Location: <span></span></p>
+              <div id="Map" class="DnsTools-map" data-mapkey=""></div>
+            </div>
         </div>
       </div>
 

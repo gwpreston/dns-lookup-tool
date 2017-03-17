@@ -1,6 +1,16 @@
 
 $(document).ready(function() {
 
+	$('html').removeClass('no-js');
+
+	var script = document.createElement( 'script' );
+	script.type = 'text/javascript';
+	script.src = 'https://maps.googleapis.com/maps/api/js?key=' + $('.DnsTools-server .DnsTools-map').data('mapkey');
+	$('head').append( script );
+
+	var map = null;
+	var marker = null;
+
 	function setViewport() {
 		$('.DnsTools-userViewport span').html($(window).width() + 'x' + $(window).height());
 	}
@@ -55,7 +65,7 @@ $(document).ready(function() {
 	        $('.DnsTools-nameserver tbody').empty();
 	        for (var i = 0; i < data.nservers.length; i++ ) {
 						$tr = $('<tr />');
-						$tr.append($('<td />').html(data.nservers[i]));
+						$tr.append($('<td />').html(data.nservers[i].name + ' (' + data.nservers[i].ip + ')'));
 						$('.DnsTools-nameserver tbody').append($tr);
 					}
 				}
@@ -126,6 +136,34 @@ $(document).ready(function() {
 						$tr.append($('<td />').html(data.txt[i]));
 						$('.DnsTools-txtRecords tbody').append($tr);
 					}
+				}
+
+				if(data.geo !== undefined) {
+					$('.DnsTools-server p span').html([data.geo.city, data.geo.country].join(', '));
+
+					var latlng = {lat: data.geo.lat, lng: data.geo.lng};
+
+					if(!$('.DnsTools-server').hasClass('DnsTools--hasMap')) {
+						$('.DnsTools-server').addClass('DnsTools--hasMap');
+
+		        map = new google.maps.Map(document.getElementById('Map'), {
+		          zoom: 4,
+		          center: latlng
+		        });
+
+		        marker = new google.maps.Marker({
+		          position: latlng,
+		          map: map
+		        });
+
+					}
+					else {
+
+						map.setCenter(latlng);
+						marker.setPosition(latlng);
+
+					}
+
 				}
 
       });

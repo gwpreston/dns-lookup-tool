@@ -60,7 +60,10 @@ if(isset($domain)) {
 	        $json->txt[] = $record['txt'];
 
 	      if($record['type'] === 'NS')
-	        $json->nservers[] = $record['target'];
+	        $json->nservers[] = array(
+	          'name' => $record['target'],
+	          'ip' => gethostbyname($record['target'])
+	        );
 
 	      if($record['type'] === 'MX')
 	        $json->mxrecord[] = array(
@@ -70,6 +73,7 @@ if(isset($domain)) {
 	        );
 	    }
 
+			$json->geo = json_decode(file_get_contents('http://ip-api.com/json/' . $json->ipaddressV4[0]));
 		}
 
 		// Sort MX Records
