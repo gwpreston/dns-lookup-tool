@@ -4,16 +4,17 @@ include_once('main.php');
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="css/main.min.css" type="text/css">
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-	<script src="js/html5shiv.min.js"></script>
-	<script src="js/respond.min.js"></script>
-<![endif]-->
+  <title>DNS Tool Lookup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/main.min.css" type="text/css">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  	<script src="js/html5shiv.min.js"></script>
+  	<script src="js/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <!--[if lt IE 7]>      <body class="DnsTools lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -165,17 +166,27 @@ include_once('main.php');
 								</div>
 							</div>
 						</div>
+            <!--
 						<div class="col-sm-12 DnsTools-preview">
 			        <h3>Preview</h3>
 			        <iframe></iframe>
 			      </div>
-            <?php if(defined('GOOGLE_MAP_KEY') && !empty(GOOGLE_MAP_KEY)) { ?>
-            <div class="col-sm-12 DnsTools-server">
-              <h3>Server</h3>
-              <p>Location: <span></span></p>
-              <div id="Map" class="DnsTools-map" data-mapkey="<?php echo GOOGLE_MAP_KEY; ?>"></div>
-            </div>
-            <?php } ?>
+            -->
+            <div class="col-sm-12 col-lg-12 DnsTools-server">
+  						<div class="panel panel-default">
+  						  <div class="panel-heading">
+  						    <h3 class="panel-title">Server</h3>
+  								<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+  						  </div>
+  								<div class="panel-body">
+                    <p>Location: <span></span></p>
+                    <?php if(defined('GOOGLE_MAP_KEY') && !empty(GOOGLE_MAP_KEY)) { ?>
+                    <div id="Map" class="DnsTools-map" data-mapkey="<?php echo GOOGLE_MAP_KEY; ?>"></div>
+                    <?php } ?>
+  								</div>
+  							</div>
+  						</div>
+
         </div>
       </div>
 
