@@ -75,9 +75,8 @@ if(isset($domain)) {
 	        );
 	    }
 
-			if(defined('GOOGLE_MAP_KEY') && !empty(GOOGLE_MAP_KEY))
-				$json->geo = json_decode(file_get_contents('http://ip-api.com/json/' . $json->ipaddressV4[0]));
-				
+			$json->geo = json_decode(file_get_contents('http://ip-api.com/json/' . $json->ipaddressV4[0]));
+
 		}
 
 		// Sort MX Records
